@@ -46,6 +46,30 @@ const Company = Schema({
         type: String,
         default: "",
     },
+    reason :{
+        type: String,
+        default: "",       
+    },
+    deletedate :{
+        type : Date,
+        require : false,
+    },
+    deleted :{
+        type: Boolean,
+        default: false,
+    },
+    isdeldete :{
+        type: Boolean,
+        default: false,
+    },
+    trainee :{
+        type : Array,
+        default: [],
+    },
+    rating :{
+        type : Array,
+        default: [],
+    }
 
 });
 //Student.index({ id: 1 });

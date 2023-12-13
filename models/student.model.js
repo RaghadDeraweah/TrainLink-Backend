@@ -58,6 +58,46 @@ const Student = Schema({
         type: String,
         default: "",
     },
+    cv :{
+        type: String,
+        default: "",
+    },
+    available: {
+        type: Boolean,
+        default: true,
+    },
+    groupid: {
+        type: String,
+        default: "",
+    },
+    request: {
+        type: Boolean,
+        default: false,
+    },
+    postid: {
+        type: String,
+        default: "",
+    },
+    universityTraining: {
+        type: Boolean,
+        default: false,
+    },
+    stustatus: {
+        type: String,
+        default: "",
+    },
+    startyear :{
+        type: String,
+        default: "",
+    },
+    graduationyear : {
+        type: String,
+        default: "",
+    },
+    finishedGroups :{
+        type: Array,
+        
+    },
 
 });
 //Student.index({ id: 1 });
