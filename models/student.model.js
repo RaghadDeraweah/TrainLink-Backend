@@ -80,7 +80,6 @@ const Student = Schema({
     },
     universityTraining: {
         type: Boolean,
-        default: false,
     },
     stustatus: {
         type: String,
@@ -96,6 +95,7 @@ const Student = Schema({
     },
     finishedGroups :{
         type: Array,
+        default: [],
         
     },
 

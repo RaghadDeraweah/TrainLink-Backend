@@ -68,7 +68,7 @@ router.get('/posts', async (req, res) => {
           postImg: post.postImg,
           location: post.location,
           seats: post.seats,
-          field: post.feild, // Fixed typo: "field" instead of "feild"
+          field: post.field, // Fixed typo: "field" instead of "feild"
           isFreezed: post.isFreezed,
           isRemotly : post.isRemotly, 
           isUni : post.isUni,

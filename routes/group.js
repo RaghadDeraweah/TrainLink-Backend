@@ -298,4 +298,14 @@ router.put('/updateReqstu/:_id', async (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
     }
   });
+// university
+router.get('/all/groups', async (req, res) => {
+  try {
+    const groups = await Group.find({});
+    res.json(groups);
+  } catch (err) {
+    console.error('Error retrieving groups:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 module.exports = router;

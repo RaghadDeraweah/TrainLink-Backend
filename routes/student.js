@@ -167,6 +167,7 @@ router.route("/register").post(async (req,res) => {
     stustatus : req.body.stustatus,
     startyear : req.body.startyear,
     graduationyear : req.body.graduationyear,
+    universityTraining : req.body.universityTraining,
     finishedGroups :[],
     //finishedGroups : req.body.finishedGroups,
     
