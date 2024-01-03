@@ -8,7 +8,15 @@ const fs = require('fs');
 const jwt = require("jsonwebtoken");
 let middleware = require("../middleware");
 const router = express.Router();
-
+router.get('/all/students', async (req, res) => {
+  try {
+    const students = await Unistudents.find({});
+    res.json(students);
+  } catch (err) {
+    console.error('Error retrieving students:', err);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 router.get('/students/:RegNum', async (req, res) => {
     try {
         console.log("inside get student data");
@@ -37,19 +45,7 @@ router.route("/checkRegNum").post(async (req, res) => {
       }else {
         res.status(200).json("ID found");
       }
-  
-    /*  if (result.Password === req.body.Password) {
-        // Implement JWT token functionality here
-        let token = jwt.sign({ RegNum: req.body.RegNum }, config.key, {});
-        console.log("login!");
-        //res.status(200).json("Sucess login");
-        res.json({
-          token: token,
-          msg: "success",
-        });
-      } else {
-        res.status(403).json("Password is incorrect");
-      }*/
+
     } catch (err) {
       res.status(500).json({ msg: err.message });
     }

@@ -61,6 +61,10 @@ const Group = Schema({
     EndDate :{
         type : Date,
     },
+    isDel :{
+        type: Boolean,
+        require : false,  
+    },
 
 });
 module.exports = mongoose.model("Group",Group);

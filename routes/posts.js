@@ -284,6 +284,25 @@ router.put('/hasgroup/:_id', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+router.get('/post/:_id', async (req, res) => {
+  try {
+      console.log("inside get post data");
+      console.log(req.params._id);
+    const company = await Post.findOne({_id: req.params._id});
+    if (company) {
+      console.log("pass");
+      console.log(company);
+      res.json(company);
+    } else {
+      console.log("not pass");
+      return null; // Return null if the company with the specified ID is not found
+    }
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'An error occurred while retrieving post info.' });
+  }
+});
   module.exports = router;
 
 

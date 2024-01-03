@@ -40,7 +40,7 @@ const storage = multer.diskStorage({
       cb(null, "./uploads");
     },
     filename: (req, file, cb) => {
-      cb(null, "Grouppost"+req.body._id + ".jpg");
+      cb(null, "Gp"+req.body._id + ".jpg");
     },
   });
   
@@ -104,7 +104,7 @@ router.get('/posts/:groupid', async (req, res) => {
 //const publicationTime = dayjs(postData.publicationDate); // Post publication time
 //const age = publicationTime.from(currentTime);
       const formattedPosts = postsList.map((post) => ({
-
+        _id:post._id,
         groupid :post.groupid,
         cid: post.cid,
         cname: post.cname,
@@ -139,7 +139,7 @@ router.get('/posts/:groupid', async (req, res) => {
 //const publicationTime = dayjs(postData.publicationDate); // Post publication time
 //const age = publicationTime.from(currentTime);
       const formattedPosts = postsList.map((post) => ({
-
+        _id:post._id,
         groupid :post.groupid,
         cid: post.cid,
         cname: post.cname,

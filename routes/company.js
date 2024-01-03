@@ -234,16 +234,16 @@ router.get('/all/companies', async (req, res) => {
 router.put('/delete/:ID', async (req, res) => {
   console.log("updatee for company delete");
   //const RegNum = req.params.RegNum;
-  const { reason } = req.body.reason;
-  const { deletedate } = req.body.deletedate;
-  const { isdeldete } = true;
+  const  reason  = req.body.reason;
+  const deletedate = req.body.deletedate;
+  const  isdeldete  = true;
   //const  ID= req.params.ID;
 
   try {
     // Find the post by ID and update the isFreezed field
     const updatedstudent = await Company.findOneAndUpdate(
       {ID :req.params.ID},
-      { $set: { reason ,deletedate,isdeldete} },
+      { $set: { reason ,deletedate, isdeldete} },
       { new: true } // Return the updated document
     );
 
@@ -326,4 +326,5 @@ router.put('/updaterating/:ID', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
 module.exports = router;

@@ -29,6 +29,7 @@ router.route("/add").post(async (req,res) => {
         membersStudent: req.body.membersStudent,
         membersStudentId: req.body.membersStudentId,
         islocked : false,
+        isDel : false,       
         phase: "Assessment",
     });
     
@@ -117,6 +118,7 @@ router.get('/gruops/:cid', async (req, res) => {
         membersStudent: group.membersStudent,
         membersStudentId: group.membersStudentId,
         islocked : group.islocked,
+        isDel : group.isDel,
         phase:  group.phase,
         StartDate: dayjs(group.StartDate).format('YYYY-MM-DD'),
         EndDate: dayjs(group.EndDate).format('YYYY-MM-DD'),
@@ -267,6 +269,27 @@ router.put('/updateReqstu/:_id', async (req, res) => {
         _id,
         { $set: { EndDate } },
         { new: true } // Return the updated document
+      );
+  
+      if (!updatedPost) {
+        return res.status(404).json({ message: 'group not found' });
+      }
+  
+      res.json(updatedPost);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
+  router.put('/Del/:_id', async (req, res) => {
+    console.log('inside deletion');
+    const _id = req.params._id;
+    const  isDel  = req.body.isDel;  
+    try {
+      const updatedPost = await Group.findByIdAndUpdate(
+        _id,
+        { $set: { isDel } },
+        { new: true } 
       );
   
       if (!updatedPost) {

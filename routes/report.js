@@ -107,7 +107,7 @@ router.put('/companyfeedback/:actualhours/:_id', async (req, res) => {
 router.put('/universityfeedback/:_id', async (req, res) => {
     const _id = req.params._id;
     const { universityFeedback } = req.body;
-    const { universityApproval } = true;
+    const  universityApproval  = true;
   
     try {
       // Find the post by ID and update the isFreezed field

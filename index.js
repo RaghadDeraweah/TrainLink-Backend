@@ -14,16 +14,17 @@ const companyFormRoute = require("./routes/companyform");
 const StudentpostRoute = require("./routes/studentpost");
 const notificationRoute = require("./routes/notification");
 const unistudentsRoute = require("./routes/unistudents");
+const PartnershipRoute = require("./routes/partnership");
 const app=express();
 const Port = process.env.port || 5000;
 mongoose.connect('mongodb://127.0.0.1:27017/test1' ,{useNewUrlParser: true,
 useUnifiedTopology: true,});
 const corsOptions = {
-    origin: 'http://localhost:57525',  // Replace with your Flutter web app's domain
+    origin: 'http://localhost:60203',  // Replace with your Flutter web app's domain
   };
 app.use(cors(corsOptions));
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:57525');  // Replace with your Flutter web app's domain
+    res.header('Access-Control-Allow-Origin', 'http://localhost:60203');  // Replace with your Flutter web app's domain
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
@@ -50,5 +51,6 @@ app.use("/companyform",companyFormRoute);
 app.use("/student-post",StudentpostRoute);
 app.use("/notification", notificationRoute);
 app.use("/unistudents", unistudentsRoute); 
+app.use("/partnership",PartnershipRoute);
 app.route("/").get((req,res) => res.json("your first rest api 1"));
 app.listen(Port, () => console.log('your server running on port '+ Port));
