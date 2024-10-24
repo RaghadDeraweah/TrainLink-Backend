@@ -260,7 +260,7 @@ router.put('/delete/:ID', async (req, res) => {
 router.put('/deletenow/:ID', async (req, res) => {
   console.log("updatee for company finish deleteion");
   //const RegNum = req.params.RegNum;
-  const { deleted } = true;
+  const  deleted  = true;
   //const  ID= req.params.ID;
 
   try {
@@ -326,5 +326,6 @@ router.put('/updaterating/:ID', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
 
 module.exports = router;

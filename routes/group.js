@@ -31,6 +31,8 @@ router.route("/add").post(async (req,res) => {
         islocked : false,
         isDel : false,       
         phase: "Assessment",
+        StartDate:new Date(), 
+        EndDate:new Date(), 
     });
     
     // Save the new Group to the database
@@ -124,6 +126,7 @@ router.get('/gruops/:cid', async (req, res) => {
         EndDate: dayjs(group.EndDate).format('YYYY-MM-DD'),
       }));
       res.json(formattedgroups);
+      console.log(formattedgroups);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'An error occurred while retrieving groups.' });
@@ -331,4 +334,5 @@ router.get('/all/groups', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
 module.exports = router;

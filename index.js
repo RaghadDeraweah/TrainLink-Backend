@@ -20,11 +20,11 @@ const Port = process.env.port || 5000;
 mongoose.connect('mongodb://127.0.0.1:27017/test1' ,{useNewUrlParser: true,
 useUnifiedTopology: true,});
 const corsOptions = {
-    origin: 'http://localhost:60203',  // Replace with your Flutter web app's domain
+    origin: 'http://localhost:49999',  // Replace with your Flutter web app's domain
   };
 app.use(cors(corsOptions));
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:60203');  // Replace with your Flutter web app's domain
+    res.header('Access-Control-Allow-Origin', 'http://localhost:49999');  // Replace with your Flutter web app's domain
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();

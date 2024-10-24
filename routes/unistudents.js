@@ -74,4 +74,29 @@ router.route("/add").post(async (req,res) => {
       res.status(403).json({ msg : err});
    })
   });
+router.put('/unitrain/:RegNum', async (req, res) => {
+    console.log("updatee for stu unitrain");
+   // const RegNum = req.params.RegNum;
+    const { universityTraining } = req.body;
+  
+    try {
+      // Find the post by ID and update the isFreezed field
+      const updatedstudent = await Unistudents.findOneAndUpdate(
+        { RegNum : req.params.RegNum },
+        { $set: { universityTraining } },
+        { new: true } // Return the updated document
+      );
+  
+      if (!updatedstudent) {
+        return res.status(404).json({ message: 'stu not found' });
+      }
+  
+      res.json(updatedstudent);
+      console.log("ini student training updated ");
+      console.log(updatedstudent);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
   module.exports = router;

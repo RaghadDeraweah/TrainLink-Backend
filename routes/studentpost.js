@@ -11,9 +11,12 @@ router.route("/add").post(async (req,res) => {
         RegNum: req.body.RegNum,
         sname: req.body.sname,
         simg: req.body.simg,
+        title:req.body.title,
         content: req.body.content,
         projectlink: req.body.projectlink,
         postDate: new Date(), 
+        frameworks: req.body.frameworks,
+        likes:[],
 
     });
     
@@ -40,13 +43,16 @@ router.get('/posts/:RegNum', async (req, res) => {
       const postsList = Array.isArray(post) ? post : [post];
       const currentTime = dayjs(); 
       const formattedPosts = postsList.map((post) => ({
-
+        _id:post._id,
         RegNum :post.RegNum,
         sname: post.sname,
         simg: post.simg,
+        title:post.title,        
         content: post.content,
         projectlink: post.projectlink,
         postDate: dayjs(post.postDate).from(currentTime),
+        frameworks:post.frameworks,
+        likes:post.likes
       
       }));
   
@@ -55,6 +61,26 @@ router.get('/posts/:RegNum', async (req, res) => {
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'An error occurred while retrieving posts.' });
+    }
+  });
+  router.put('/updatelikes/:_id', async (req, res) => {
+    const { likes } = req.body;
+  
+    try {
+      const updatedPost = await Studentpost.findOneAndUpdate(
+        {_id :req.params._id},
+        { $set: { likes } },
+        { new: true } // Return the updated document
+      );
+  
+      if (!updatedPost) {
+        return res.status(404).json({ message: 'post not found' });
+      }
+  
+      res.json(updatedPost);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
     }
   });
   module.exports = router;

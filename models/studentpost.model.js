@@ -16,6 +16,11 @@ const Studentpost = Schema({
         type: String,
         default: "",
     },
+    title:{
+        type : String,
+        require :true,
+        unique : false,
+    },
     content : {
         type : String,
         require :true,
@@ -29,6 +34,14 @@ const Studentpost = Schema({
     postDate :{
         type : Date,
         require :true,
+    },
+    frameworks :{
+        type: Array,
+        require : true,
+    },
+    likes :{
+        type: Array,
+        require : true,
     },
 
 });
