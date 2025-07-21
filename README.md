@@ -2,7 +2,8 @@
 
 **TrainLink** is a cross-platform internship management system built to connect university students with training opportunities, while supporting companies and university supervisors throughout the entire training process. Developed as a graduation project at An-Najah National University.
 
----
+[Watch Demo Video](https://drive.google.com/file/d/13uykmlVCslgw5Ep7un2gShnaWpRYf6py/view?usp=sharing)
+
 
 ## 📌 Features
 
@@ -26,7 +27,7 @@
 - View statistics on students and training programs
 - Finalize grades and approve training results
 
----
+
 
 ## 🧰 Tech Stack
 
@@ -38,14 +39,14 @@
 | Realtime     | Firebase (Messaging)    |
 | Tools        | GitHub, VS Code, Android Studio |
 
----
+
 
 ## 📊 Impact
 
 - Improved communication between university, students, and companies
 - Streamlined the practical training process from start to finish
 
----
+
 
 ## 📎 Project Structure
 
@@ -53,7 +54,7 @@
 - `trainlink_back` – Node.js backend with MongoDB
 - Admin dashboard (web interface) for university supervisors
 
----
+
 
 ## 📈 Future Enhancements
 
@@ -61,18 +62,18 @@
 - Payment support for external trainings
 - Priority handling for graduating students
 
----
+
 
 ## 👥 Authors
 
 - **Raghad Taqatqa** – [GitHub](https://github.com/RaghadDeraweah)   
 - Supervisor: **Dr. Amjad Abu Hassan**  
 
----
+
 
 ## 📜 License
 
 This project was developed as part of a graduation requirement and is for educational and institutional use.
 
----
+
 
